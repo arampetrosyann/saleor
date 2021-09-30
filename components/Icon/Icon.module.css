@@ -1,0 +1,29 @@
+.icon{
+  color: #333333;
+}
+.icon::before {
+  font-family: 'storefrontIcon' ;
+  font-style: normal ;
+  font-weight: normal ;
+  font-variant: normal;
+  text-transform: none ;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-like:before {
+  content: "\e900";
+}
+
+.icon-bag:before {
+  content: "\e901";
+}
+
+.icon-search:before {
+  content: "\e902";
+}
+
+.icon-menu:before {
+  content: "\e903";
+}
