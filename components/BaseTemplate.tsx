@@ -1,5 +1,6 @@
 import { Navbar } from ".";
 import Spinner from "./Spinner";
+import { Footer } from "@/components/Footer";
 
 export interface BaseTemplateProps {
   children?: React.ReactNode;
@@ -17,6 +18,7 @@ export const BaseTemplate: React.VFC<BaseTemplateProps> = ({
       <div className="min-h-screen bg-gray-100 align-middle flex flex-col flex-grow">
         {isLoading ? <Spinner /> : children}
       </div>
+      <Footer />
     </>
   );
 };
