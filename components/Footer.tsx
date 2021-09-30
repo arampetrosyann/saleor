@@ -38,7 +38,7 @@ export const Footer = () => {
             {footer.map(item => {
               return (
                 <div key={item.id} className={"max-500:mb-20"}>
-                  <p className={"mt-0 mb-20"}>{item.title}</p>
+                  <p className={"mt-0 mb-20 not-italic font-bold text-base leading-5 text-gray-800"}>{item.title}</p>
                   <div className={"flex flex-col gap-y-2.5"}>
                     {item?.block.map(item => {
                       return (
