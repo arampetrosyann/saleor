@@ -50,6 +50,9 @@ module.exports = {
       },
       height: {
         "arrow": "12px"
+      },
+      zIndex: {
+        "full": "999999",
       }
     },
     backgroundColor: theme => ({
@@ -81,9 +84,11 @@ module.exports = {
       "page": "1344px",
       "141":"141px",
       "500":"500px",
+      "450": "450px"
     },
     maxHeight: {
-      "logo": "39px"
+      "logo": "39px",
+      "90": "90%"
     },
     fontFamily: {
       body: ['Inter'],
