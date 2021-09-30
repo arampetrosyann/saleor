@@ -82,6 +82,7 @@ module.exports = {
       "thumbnail": "97px",
       "add-cart":"223px",
       "page": "1344px",
+      "fit": "fit-content",
       "141":"141px",
       "500":"500px",
       "450": "450px"
