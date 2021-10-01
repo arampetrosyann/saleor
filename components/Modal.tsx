@@ -48,7 +48,7 @@ export const Modal: React.VFC<ModalProps> = (props) => {
         <div className="fixed top-1/2 left-1/2 bg-white w-full max-w-450 transform -translate-x-1/2 -translate-y-1/2 text-base max-h-90 overflow-x-hidden overflow-y-auto p-5 box-border z-10">
           {closeIcon && (
             <span
-              className="absolute top-1 right-2 cursor-pointer"
+              className="absolute top-4 right-4 cursor-pointer"
               onClick={onClose}
             >
               {closeIcon}
