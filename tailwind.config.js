@@ -87,6 +87,9 @@ module.exports = {
       "223": "223px",
       "141": "141px",
       "500": "500px",
+      "fit": "fit-content",
+      "141":"141px",
+      "500":"500px",
       "450": "450px"
     },
     maxHeight: {
