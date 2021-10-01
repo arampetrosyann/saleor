@@ -17,7 +17,7 @@ export const Button: React.VFC<Props> = ({ onClick, className, children, rotate,
     <button
       className={clsx(styles, className)}
       onClick={onClick}
-      style={{ transform: `rotate(${rotate}deg)` }}
+      style={!!rotate ? { transform: `rotate(${rotate}deg)` } : undefined}
       type={type}
       disabled={disabled}
     >
