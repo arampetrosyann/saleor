@@ -37,7 +37,7 @@ export const ProductCollection: React.VFC<ProductCollectionProps> = ({
     <div>
       <ul
         role="list"
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        className="grid gap-4 min-lg:grid-cols-4 max-lg:grid-cols-2 max-sm:grid-cols-1"
       >
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />

@@ -1,0 +1,84 @@
+.thumbnailList {
+  position: relative;
+  display: grid;
+  left: 0;
+  z-index: 1;
+  margin-top: 23px;
+}
+
+.thumbnailListEff {
+  composes: thumbnailList;
+}
+
+.thumbnail {
+  display: grid;
+  outline: none;
+  width: 97px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.thumbnailSelected {
+  composes: thumbnail;
+
+}
+
+.thumbnailSelected div.imgSlide {
+  border: 1.23175px solid #333333;
+  outline: none !important;
+}
+
+.thumbnail :global(.carousel__inner-slide) {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  outline: none !important;
+}
+
+.thumbnailListEff :global(.carousel__slider-tray-wrapper) {
+  display: grid;
+  justify-items: center;
+  outline: none !important;
+}
+
+div.imgSlide {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin: 0 6px;
+}
+
+.thumbnail img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+.root img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.thumbnailList :global(.focusRing___1airF.carousel__slide-focus-ring) {
+  outline: none !important;
+}
+
+.arrows {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+@media (max-width: 768px) {
+  .thumbnailList {
+    margin-top: 4px;
+  }
+
+  div.imgSlide {
+    margin: 0 5px;
+  }
+}

@@ -72,7 +72,7 @@ export const Navbar: React.VFC = ({}) => {
                   {!authenticated && (
                     <Link href="/account/login">
                       <a className="group -m-2 p-2 flex items-center">
-                        <Button onClick={() => void (5)} className={"uppercase"}>Sign In</Button>
+                        <Button onClick={() => void (5)} className={"uppercase bg-black border hover:bg-black"}>Sign In</Button>
                       </a>
                     </Link>
                   )}

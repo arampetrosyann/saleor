@@ -15,7 +15,7 @@ export const BaseTemplate: React.VFC<BaseTemplateProps> = ({
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gray-100 align-middle flex flex-col flex-grow">
+      <div className="min-h-screen bg-white align-middle flex flex-col flex-grow">
         {isLoading ? <Spinner /> : children}
       </div>
       <Footer />

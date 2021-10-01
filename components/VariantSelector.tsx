@@ -16,6 +16,9 @@ export const VariantSelector: React.VFC<VariantSelectorProps> = ({
   if (!variants || variants.length === 1) {
     return null;
   }
+
+  console.log(variants,"vaiantsvaiantsvaiantsvaiantsvaiants")
+
   return (
     <div className="grid grid-cols-8 gap-2">
       {variants.map((variant) => {
