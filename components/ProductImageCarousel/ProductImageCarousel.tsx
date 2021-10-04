@@ -7,8 +7,6 @@ import {
   Slide,
   Slider,
   Image as SlideImage,
-  ButtonBack,
-  ButtonNext
 } from "pure-react-carousel";
 import Image from "next/image";
 import "pure-react-carousel/dist/react-carousel.es.css";

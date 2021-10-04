@@ -26,6 +26,8 @@ import Custom404 from "pages/404";
 import { ProductImageCarousel } from "@/components/ProductImageCarousel/ProductImageCarousel";
 import { Button } from "@/components/Button";
 import { StarsRating } from "@/components/StarsRating";
+import { DisclosureBase } from "@/components/Disclosure";
+import { RelatedProductsSlider } from "@/components/RelatedProducts";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const productSlug = context.params?.slug?.toString();
@@ -136,61 +138,66 @@ const ProductPage: React.VFC<InferGetStaticPropsType<typeof getStaticProps>> =
       setAddToCartError(errorMessages.join("\n"));
     };
 
-    const productImage = product?.media![0];
-
-    console.log(product, "productProductProduct");
-
     return (
       <BaseTemplate>
         <ProductPageSeo product={product} />
-        <main className="grid grid-cols-1 min-md:grid-cols-2 gap-4 max-w-7xl mx-auto pt-8 min-md:px-8">
-          <div className="w-full min-md:max-w-slid">
-            {width <= 767 && <div className={"px-5 mb-20  grid gap-10"}>
-              <h1 className="text-lg font-bold tracking-tight text-gray-800">
-                {product?.name}
-              </h1>
-              <StarsRating rating={5} />
-              <p className="font-semibold text-base leading-5 text-black">{price}</p>
-            </div>}
-            {product?.media?.length && (
-              <ProductImageCarousel images={product.media} />
-            )}
-          </div>
-          <div className="space-y-8 max-md:px-5">
-            {width > 767 && <div>
-              <h1 className="text-4xl font-bold tracking-tight text-gray-800">
-                {product?.name}
-              </h1>
-              <StarsRating rating={5} />
-              <Link href={`/category/${product?.category?.slug}`} passHref>
-                <p className="text-lg mt-2 font-medium text-gray-500 cursor-pointer">
-                  {product?.category?.name}
-                </p>
-              </Link>
-            </div>}
-            {width >767 && <p className="text-2xl text-gray-900">{price}</p>}
-            {product?.description && (
-              <div className="text-base text-gray-700 space-y-6">
-                <RichText jsonStringData={product.description} />
+        <main
+          className="w-full max-w-page mx-auto px-page-x pt-main-t pb-main-b pt-main max-md:px-0 max-md:pt-ty max-md:pb-24">
+          <div
+            className={"grid grid-cols-2 gap-x-prodPage gap-y-10 items-start max-md:gap-y-mainMin max-md:grid-cols-1"}>
+            <div className="w-full min-md:max-w-slid">
+              {width <= 767 && <div className={"px-5 mb-20  grid gap-10"}>
+                <h1 className="text-lg font-bold tracking-tight text-gray-800">
+                  {product?.name}
+                </h1>
+                <StarsRating rating={5} />
+                <p className="font-semibold text-base leading-5 text-black">{price}</p>
+              </div>}
+              {product?.media?.length && (
+                <ProductImageCarousel images={product.media} />
+              )}
+              <div className={"mt-100 max-md:px-page-x"}>
+                <RelatedProductsSlider  />
               </div>
-            )}
-            <VariantSelector
-              product={product}
-              selectedVariantID={selectedVariantID}
-            />
-            {selectedVariant && selectedVariant?.quantityAvailable > 0 ? (
-              <Button
-                onClick={onAddToCart}
-                type="submit"
-                disabled={loadingAddToCheckout}
-                className="max-w-223 w-full bg-black border hover:bg-black border-transparent font-medium text-base leading-5 text-center uppercase py-11 px-57"
-              >
-                {loadingAddToCheckout ? "Adding..." : "Add to cart"}
-              </Button>
-            ) : (
-              <p className="text-lg- text-yellow-600">Sold out!</p>
-            )}
-            {!!addToCartError && <p>{addToCartError}</p>}
+            </div>
+            <div className="max-md:px-5 w-full">
+              {width > 767 && <div className={"grid"}>
+                <h1 className="text-4xl font-bold tracking-tight text-gray-800">
+                  {product?.name}
+                </h1>
+                <StarsRating rating={5} />
+                <p className="not-italic font-semibold text-2xl leading-7 text-black mt-15">{price}</p>
+              </div>}
+              <div className={"grid grid-flow-col items-center"} style={{ gap: "29px" }}>
+                <p className={"not-italic font-medium text-base leading-5 text-gray-800"}>Select size</p>
+                <VariantSelector
+                  product={product}
+                  selectedVariantID={selectedVariantID}
+                />
+              </div>
+              <div className={"mt-45"}>
+                {selectedVariant && selectedVariant?.quantityAvailable > 0 ? (
+                  <Button
+                    onClick={onAddToCart}
+                    type="submit"
+                    disabled={loadingAddToCheckout}
+                    className="max-w-223 w-full bg-black border hover:bg-black border-transparent font-medium text-base leading-5 text-center uppercase py-11 px-57 max-md:max-w-full"
+                  >
+                    {loadingAddToCheckout ? "Adding..." : "Add to cart"}
+                  </Button>
+                ) : (
+                  <p className="text-lg- text-yellow-600">Sold out!</p>
+                )}
+                {!!addToCartError && <p>{addToCartError}</p>}
+                <div className={"mt-52"}>
+                  <DisclosureBase title={"Product Details"}
+                                  content={"If you're unhappy with your purchase for any reason, email us\n" +
+                                  "                within 90 days and we'll refund you in full, no questions asked."} />
+                  <DisclosureBase title={"Specifications"} />
+                  <DisclosureBase title={"Shipping and Returns"} />
+                </div>
+              </div>
+            </div>
           </div>
         </main>
       </BaseTemplate>

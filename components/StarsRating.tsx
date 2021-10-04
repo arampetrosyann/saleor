@@ -5,16 +5,22 @@ import StarRatings from "react-star-ratings";
 interface StarsRatingProps {
   rating: number;
   starsCount?: number;
-  color?:string;
+  color?: string;
+  size?: string;
 }
 
-export const StarsRating:React.VFC<StarsRatingProps> = ({ rating, starsCount=5 , color = "#000000"}) => {
+export const StarsRating: React.VFC<StarsRatingProps> = ({
+  rating,
+  starsCount = 5,
+  color = "#000000",
+  size = "20px"
+}) => {
   return (
     <StarRatings
       rating={rating}
       starRatedColor={color}
-      starDimension="14px"
-      starSpacing="3px"
+      starDimension={size}
+      starSpacing="0.5px"
       numberOfStars={starsCount}
       name="rating"
       isSelectable={false}

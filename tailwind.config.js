@@ -16,16 +16,18 @@ module.exports = {
         "btn-x": "21px",
         "15px": "15px;",
         "61": "61px",
-        "57":"57px",
+        "57": "57px",
         "53": "53px",
-        "11":"11px",
+        "11": "11px"
       },
       margin: {
         "arrow": "27px",
         "thumbnailImage": "6",
         "thumbnailListMax": "24px",
         "thumbnailListMin": "4px",
+        "100":"100px",
         "52": "52px",
+        "45": "45px",
         "40": "40px",
         "32": "32px",
         "30": "30px",
@@ -43,12 +45,13 @@ module.exports = {
         "prodPage": "4.5rem",
         "mainMin": "20px",
         "30px": "30px",
-        "10":"10px",
+        "10": "10px",
         "14": "14px"
       },
       width: {
         "arrow": "12px",
-        "thumbWidth": "97px"
+        "thumbWidth": "97px",
+        "100":"100px"
       },
       height: {
         "arrow": "12px"
@@ -77,23 +80,29 @@ module.exports = {
     },
     minWidth: {
       "586": "586px",
+      "177":"177px",
       "169": "169px",
       "153": "153px",
+      "100": "100px"
     },
     maxWidth: {
       "slide": "586px",
       "thumbnail": "97px",
       "page": "1344px",
+      "293": "293px",
       "223": "223px",
+      "177":"177px",
       "141": "141px",
       "500": "500px",
       "fit": "fit-content",
-      "141":"141px",
-      "500":"500px",
+      "141": "141px",
+      "500": "500px",
       "450": "450px"
     },
     maxHeight: {
       "logo": "39px",
+      "238":"238px",
+      "144":"144px",
       "90": "90%"
     },
     fontFamily: {
