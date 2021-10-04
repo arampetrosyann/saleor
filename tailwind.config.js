@@ -58,6 +58,14 @@ module.exports = {
       },
       zIndex: {
         "full": "999999"
+      },
+      colors: {
+        "gray": {
+          "siv": "#b5b5b5"
+        },
+        "red": {
+          "blud": "#c01c2c"
+        }
       }
     },
     backgroundColor: theme => ({
@@ -95,6 +103,10 @@ module.exports = {
       "141": "141px",
       "500": "500px",
       "fit": "fit-content",
+      "141":"141px",
+      "171": "171px",
+      "500":"500px",
+      "95p": "95%",
       "141": "141px",
       "500": "500px",
       "450": "450px"

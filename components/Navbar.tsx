@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useAuthState } from "@saleor/sdk";
-import { ShoppingBagIcon, UserCircleIcon } from "@heroicons/react/outline";
+import { ShoppingBagIcon, UserCircleIcon, XIcon } from "@heroicons/react/outline";
 import { useLocalStorage, useWindowSize } from "react-use";
 import { useAuth } from "@saleor/sdk";
 import { Icon } from "@/components/Icon";
@@ -10,10 +10,15 @@ import { CHECKOUT_TOKEN } from "@/lib/const";
 import { useRouter } from "next/router";
 import { useApolloClient } from "@apollo/client";
 import { Button } from "@/components/Button";
+import { AuthModalContext } from "@/context/authModalContext";
+import { SignIn } from "./account/SignIn";
+import { Modal } from "./Modal";
 import { Menu } from "./Menu";
 
 export const Navbar: React.VFC = ({}) => {
   const [checkoutToken, setCheckoutToken] = useLocalStorage(CHECKOUT_TOKEN);
+  const [modalType, setModalType] = useState("signIn");
+  const [openModal, setOpenModal] = useState(false);
   const { width } = useWindowSize();
   const { logout } = useAuth();
   const router = useRouter();
@@ -34,6 +39,7 @@ export const Navbar: React.VFC = ({}) => {
   const counter = data?.checkout?.lines?.length || 0;
 
   return (
+    <AuthModalContext.Provider value={{ openModal, setOpenModal, modalType, setModalType }}>
     <div className="bg-white shadow-sm  mx-auto border-b-2 border-header ">
       <div className="max-w-page mx-auto shadow-sm px-auto py-page-y px-page-x">
         <div className="flex justify-between items-center min-xl:pr-15px">
@@ -70,11 +76,9 @@ export const Navbar: React.VFC = ({}) => {
                     <Icon size={20} name={"like"} />
                   </div>
                   {!authenticated && (
-                    <Link href="/account/login">
-                      <a className="group -m-2 p-2 flex items-center">
-                        <Button onClick={() => void (5)} className={"uppercase bg-black border hover:bg-black"}>Sign In</Button>
-                      </a>
-                    </Link>
+                      <span className="group -m-2 p-2 flex items-center">
+                        <Button className="bg-black uppercase" onClick={() => { setModalType("signIn"); setOpenModal(true); }}>Sign In</Button>
+                      </span>
                   )}
                   {authenticated && (
                     <div className="group -m-2 p-2  text-left dropdown flex items-center z-40">
@@ -158,7 +162,15 @@ export const Navbar: React.VFC = ({}) => {
         </div>)
         }
       </div>
+      <Modal
+        open={openModal}
+        onClose={() => { setModalType('signIn'); setOpenModal(false); }}
+        closeIcon={<span><XIcon width="16px" height="16px" color="#000" fontSize="11px" /></span>}
+      >
+        {modalType === "signIn" && openModal && !authenticated ? <SignIn /> : null}
+      </Modal>
     </div>
+    </AuthModalContext.Provider>
   );
 };
 
