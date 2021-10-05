@@ -18,7 +18,9 @@ module.exports = {
         "61": "61px",
         "57": "57px",
         "53": "53px",
-        "11": "11px"
+        "11": "11px",
+        "7in": "7px",
+        "3in": "3px"
       },
       margin: {
         "arrow": "27px",
@@ -51,7 +53,10 @@ module.exports = {
       width: {
         "arrow": "12px",
         "thumbWidth": "97px",
-        "100":"100px"
+        "100":"100px",
+        "38": "38px",
+        "130": "130px",
+        "134": "134px"
       },
       height: {
         "arrow": "12px"
@@ -109,7 +114,8 @@ module.exports = {
       "95p": "95%",
       "141": "141px",
       "500": "500px",
-      "450": "450px"
+      "450": "450px",
+      "410": "410px"
     },
     maxHeight: {
       "logo": "39px",
@@ -132,7 +138,8 @@ module.exports = {
       "4xl": "2.25rem",
       "5xl": "3rem",
       "6xl": "4rem",
-      "7xl": "5rem"
+      "7xl": "5rem",
+      "9xs": "9px"
     },
     borderColor: theme => ({
       ...theme("colors"),
@@ -141,7 +148,10 @@ module.exports = {
     })
   },
   variants: {
-    extend: {}
+    extend: {
+      border: ['active'],
+      borderColor: ['active'],
+    }
   },
   plugins: [
     require("@tailwindcss/forms"),

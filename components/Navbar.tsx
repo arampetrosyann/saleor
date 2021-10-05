@@ -12,6 +12,7 @@ import { useApolloClient } from "@apollo/client";
 import { Button } from "@/components/Button";
 import { AuthModalContext } from "@/context/authModalContext";
 import { SignIn } from "./account/SignIn";
+import { SignUp } from "./account/SignUp";
 import { Modal } from "./Modal";
 import { Menu } from "./Menu";
 
@@ -165,9 +166,10 @@ export const Navbar: React.VFC = ({}) => {
       <Modal
         open={openModal}
         onClose={() => { setModalType('signIn'); setOpenModal(false); }}
-        closeIcon={<span><XIcon width="16px" height="16px" color="#000" fontSize="11px" /></span>}
+        closeIcon={width > 639 ? <span><XIcon width="16px" height="16px" color="#000" fontSize="11px" /></span> : null}
       >
         {modalType === "signIn" && openModal && !authenticated ? <SignIn /> : null}
+        {modalType === "signUp" && openModal && !authenticated ? <SignUp /> : null}
       </Modal>
     </div>
     </AuthModalContext.Provider>
